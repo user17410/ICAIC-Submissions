@@ -1,0 +1,61 @@
+{
+  "exports": {
+    "selected_two_inputs": {
+      "recipe": {
+        "name": "Coordinates",
+        "columns": [
+          0,
+          1
+        ],
+        "learning_rate": 0.01,
+        "epoch": 270,
+        "accuracy": 0.6015,
+        "bce": 0.6672414541244507,
+        "correct": 2406,
+        "total": 4000
+      },
+      "holdout": {
+        "accuracy": 0.6036,
+        "bce": 0.6648858189582825,
+        "correct": 3018,
+        "total": 5000
+      },
+      "input_columns": [
+        "loc_x",
+        "loc_y"
+      ]
+    },
+    "selected_overall": {
+      "recipe": {
+        "name": "Coordinates",
+        "columns": [
+          0,
+          1
+        ],
+        "learning_rate": 0.01,
+        "epoch": 270,
+        "accuracy": 0.6015,
+        "bce": 0.6672414541244507,
+        "correct": 2406,
+        "total": 4000
+      },
+      "holdout": {
+        "accuracy": 0.6036,
+        "bce": 0.6648858189582825,
+        "correct": 3018,
+        "total": 5000
+      },
+      "input_columns": [
+        "loc_x",
+        "loc_y"
+      ]
+    }
+  },
+  "selection_metric": "validation accuracy, then lower BCE",
+  "split_sizes": {
+    "training": 16000,
+    "validation": 4000,
+    "holdout": 5000
+  },
+  "holdout_previously_inspected": true
+}
