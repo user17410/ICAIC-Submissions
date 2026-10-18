@@ -1,19 +1,35 @@
 # ICAIC Elimination Submissions
 
-This repository contains my Jupyter Notebook submissions for the four APOAI 2025 Mock Competition questions as part of the ICAIC eliminations.
+This repository contains my Jupyter Notebook submissions for the four APOAI 2025 Mock Competition questions as part of the ICAIC eliminations, together with two additional experiments.
 
-## Main Submissions
+## Main submissions
 
-| Folder                  | Task                                                    | Method                                 |
-| ----------------------- | ------------------------------------------------------- | -------------------------------------- |
-| [Question1](Question1/) | Predict basketball shot outcomes                        | Multilayer perceptron (MLP)            |
-| [Question2](Question2/) | Classify real and generated images                      | Convolutional neural network (CNN)     |
-| [Question3](Question3/) | Classify news articles by topic                         | Word embeddings and LSTM               |
-| [Question4](Question4/) | Estimate pendulum parameters and predict missing motion | Physics-based regression using PyTorch |
+| Question | Notebook                                       | Task                                            | Method                          |
+| -------- | ---------------------------------------------- | ----------------------------------------------- | ------------------------------- |
+| 1        | [Submission](Question1/submission_model.ipynb) | Predict basketball shot outcomes                | Multilayer perceptron           |
+| 2        | [Submission](Question2/submission_model.ipynb) | Classify real and generated images              | Convolutional neural network    |
+| 3        | [Submission](Question3/submission_model.ipynb) | Classify news articles by topic                 | Word embeddings and LSTM        |
+| 4        | [Submission](Question4/submission_model.ipynb) | Estimate pendulum parameters and predict motion | Physics-based parameter fitting |
 
-## Extensions and Experiments
+## Recorded local results
 
-- **[Question1-Extension](Question1-Extension/):** I explored additional input features and compared different combinations to check which produced the best results.
-- **[Question3-Extension](Question3-Extension/):** I compared training settings to see whether I could improve the model’s performance beyond the initial parameters suggested by an LLM.
+| Question | Evaluation                | Result                                    |
+| -------- | ------------------------- | ----------------------------------------- |
+| 1        | 5,000-shot local holdout  | 60.36% accuracy; majority baseline 55.26% |
+| 2        | 2,000-image local holdout | 76.50% accuracy; majority baseline 50.00% |
+| 3        | 194-article local holdout | 0.820178 macro F1; 81.96% accuracy        |
+| 4        | Fit to recorded angles    | Approximately 0.000379605 radians RMSE    |
 
-These exploratory notebooks are separate from the main submissions.
+### Note
+
+Question 3 generates `submission.csv` when `test_news_nolabel.csv` is supplied using the saved training vocabulary and original category names.
+
+Question 4 generates `submission_train.csv` from the supplied training data and generates `submissionA.csv` and `submissionB.csv` when the corresponding hidden datasets are available.
+
+## Additional experiments
+
+- [Question 1 extension](Question1-Extension/submission_model.ipynb): compares input features, learning rates, and training lengths.
+
+- [Question 3 extension](Question3-Extension/experiment.ipynb): compares changes to an initial LLM-suggested training recipe using validation macro F1.
+
+Note that the exploratory notebooks are separate from the main submissions.
